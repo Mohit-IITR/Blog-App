@@ -9,4 +9,6 @@ router.register('Blogs', views.BlogsView)
 
 urlpatterns = [
     path('', include(router.urls)),
+    path('blog/',views.Blog, name='Blog'),
+    path('form/',views.Form, name='Form'),
 ]

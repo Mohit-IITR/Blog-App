@@ -16,7 +16,8 @@ class Tags(models.Model):
 class Blogs(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     tag = models.ManyToManyField(Tags)
-    small_dec= models.TextField()
+    title = models.CharField(max_length=200, default="")
+    small_desc= models.TextField()
     full_content = models.TextField()
     img= models.ImageField(upload_to="images/")
 
