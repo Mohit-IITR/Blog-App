@@ -39,7 +39,7 @@
         <div class="text-center m-5 pt-5">
           <h2>Create your Blog
              <button type="submit" class="btn btn-secondary" style="float: right;">
-              <a href="../blog/" style="color:white">Home</a> 
+              <a href="{% url 'Blog' %}" style="color:white">Home</a> 
               </button>
             </h2>
         </div>
@@ -47,14 +47,14 @@
       <div class="container-lg pb-5">
           <div class="row justify-content-center">
               <div class="col-lg-6 border rounded px-5 py-3">
-                <form method = "POST">
+                <form method = "POST" enctype = "multipart/form-data" action = "{% url 'Form' %}">
                   {% csrf_token %}
                   <div class="row">
                     <div class="col-2">
                       <label for="title" class="form-label"> Author: </label>
                     </div>
                     <div class="col-8">
-                      <input type="text" class="form-control" id="author" name="author">
+                      {{formdata.author}}
                     </div>
                   </div>
 
@@ -63,7 +63,7 @@
                       <label for="title" class="form-label"> Title: </label>
                     </div>
                     <div class="col-8">
-                      <input type="text" class="form-control" id="title" name="title">
+                      {{formdata.title}}
                     </div>
                   </div>
                     
@@ -72,7 +72,7 @@
                       <label for="tag" class="form-label"> Tag: </label>
                     </div>
                     <div class="col-8">
-                      <input type="text" class="form-control" id="tag" name="tag">
+                      {{formdata.tag}}
                     </div>
                   </div>
                     
@@ -81,7 +81,7 @@
                       <label for="small-desc" class="form-label"> small desc: </label>
                     </div>
                     <div class="col-8">
-                      <textarea id="small-desc" name="small-desc" class="form-control" cols="30" rows="10" ></textarea>
+                      {{formdata.small_desc}}
                     </div>
                   </div>
                     
@@ -90,7 +90,7 @@
                       <label for="full-content" class="form-label"> Full-content: </label>
                     </div>
                     <div class="col-8">
-                      <textarea id="full-content" name="full-content" class="form-control" cols="30" rows="10"></textarea>
+                      {{formdata.full_content}}
                     </div>
                   </div>
 
@@ -99,7 +99,7 @@
                         <label for="image" class="form-label">Image: </label>
                       </div>
                       <div class="col-8">
-                        <input class="form-control" type="file" id="image" name="image">
+                        {{formdata.img}}
                       </div>
                     </div>
 
