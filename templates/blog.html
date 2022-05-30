@@ -46,9 +46,9 @@
                                 <h4 class="card-title">{{blog.title}}</h4>
                                 <p>{{blog.author.name}}</p>
                                 <p class="card-text"> {{blog.small_desc}} </p>
-                                <a class="btn btn-primary">View</a>
-                                <a class="btn btn-primary">Update</a>
-                                <a class="btn btn-primary">Delete</a>
+                                <a class="btn btn-primary" href = "{% url 'View_blog' blog.pk %}">View</a>
+                                <a class="btn btn-primary" href = "{% url 'Update' blog.pk %}">Update</a>
+                                <a class="btn btn-primary" href = "{% url 'Delete' blog.pk %}">Delete</a>
                             </div>
                         </div>
                     </div>

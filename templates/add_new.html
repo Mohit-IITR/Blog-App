@@ -37,7 +37,10 @@
     </style>
     
         <div class="text-center m-5 pt-5">
-          <h2>Create your Blog
+          <h2>
+            {% block heading %}
+            Create your Blog
+            {% endblock %}
              <button type="submit" class="btn btn-secondary" style="float: right;">
               <a href="{% url 'Blog' %}" style="color:white">Home</a> 
               </button>
@@ -47,6 +50,7 @@
       <div class="container-lg pb-5">
           <div class="row justify-content-center">
               <div class="col-lg-6 border rounded px-5 py-3">
+                {% block form %}
                 <form method = "POST" enctype = "multipart/form-data" action = "{% url 'Form' %}">
                   {% csrf_token %}
                   <div class="row">
@@ -54,7 +58,7 @@
                       <label for="title" class="form-label"> Author: </label>
                     </div>
                     <div class="col-8">
-                      {{formdata.author}}
+                      {{content.author}}
                     </div>
                   </div>
 
@@ -63,7 +67,7 @@
                       <label for="title" class="form-label"> Title: </label>
                     </div>
                     <div class="col-8">
-                      {{formdata.title}}
+                      {{content.title}}
                     </div>
                   </div>
                     
@@ -72,7 +76,7 @@
                       <label for="tag" class="form-label"> Tag: </label>
                     </div>
                     <div class="col-8">
-                      {{formdata.tag}}
+                      {{content.tag}}
                     </div>
                   </div>
                     
@@ -81,7 +85,7 @@
                       <label for="small-desc" class="form-label"> small desc: </label>
                     </div>
                     <div class="col-8">
-                      {{formdata.small_desc}}
+                      {{content.small_desc}}
                     </div>
                   </div>
                     
@@ -90,7 +94,7 @@
                       <label for="full-content" class="form-label"> Full-content: </label>
                     </div>
                     <div class="col-8">
-                      {{formdata.full_content}}
+                      {{content.full_content}}
                     </div>
                   </div>
 
@@ -99,7 +103,7 @@
                         <label for="image" class="form-label">Image: </label>
                       </div>
                       <div class="col-8">
-                        {{formdata.img}}
+                        {{content.img}}
                       </div>
                     </div>
 
@@ -108,6 +112,7 @@
                     </div>
 
                 </form>
+                {% endblock %}
               </div>
           </div>
       </div>
